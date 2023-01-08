@@ -1,0 +1,11 @@
+{
+    "DABLOONS" : ["d305.png", "d306.png", "d307.png"],
+    "PILE_OF_DABLOONS" : "d109.png",
+    "JOURNAL" : "d25.png",
+    "CHEST" : "d6.png",
+    "GROUP" : "d14.png",
+    "PICKAXE" : "d110.png",
+    "HOE" : "d111.png",
+    "ENVELOPE" : "d174.png",
+    "MONEY" : "d336.png"
+}

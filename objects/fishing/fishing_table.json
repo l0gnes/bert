@@ -1,0 +1,92 @@
+[
+    {
+        "name" : "Shrimp",
+        "value" : 1,
+        "asset" : "FISH_SHRIMP",
+        "min_power" : 0
+    },
+    {
+        "name" : "Starfish",
+        "value" : 1,
+        "asset" : "FISH_STARFISH",
+        "min_power" : 0
+    },
+    {
+        "name" : "Anchovy",
+        "value" : 2,
+        "asset" : "FISH_ANCHOVY",
+        "min_power" : 0
+    },
+    {
+        "name" : "Jellyfish",
+        "value" : 1,
+        "asset" : "FISH_JELLYFISH",
+        "min_power" : 0
+    },
+    {
+        "name" : "Olive Anchovy",
+        "value" : 4,
+        "asset" : "FISH_OLIVE_ANCHOVY",
+        "min_power" : 4
+    },
+    {
+        "name" : "Gold Shrimp",
+        "value" : 8,
+        "asset" : "FISH_GOLD_SHRIMP",
+        "min_power" : 12
+    },
+    {
+        "name" : "Blue Shrimp",
+        "value" : 3,
+        "asset" : "FISH_BLUE_SHRIMP",
+        "min_power" : 6
+    },
+    {
+        "name" : "Lobster",
+        "value" : 4,
+        "asset" : "FISH_LOBSTER",
+        "min_power" : 3
+    },
+    {
+        "name" : "Cod",
+        "value" : 2,
+        "asset" : "FISH_COD",
+        "min_power" : 1.5
+    },
+    {
+        "name" : "Crab",
+        "value" : 3,
+        "asset" : "FISH_CRAB",
+        "min_power" : 2
+    },
+    {
+        "name" : "Plum Cod",
+        "value" : 4,
+        "asset" : "FISH_PLUM_COD",
+        "min_power" : 4.5
+    },
+    {
+        "name" : "Clownfish",
+        "value" : 3,
+        "asset" : "FISH_CLOWNFISH",
+        "min_power" : 2.5
+    },
+    {
+        "name" : "Pufferfish",
+        "value" : 4,
+        "asset" : "FISH_PUFFERFISH",
+        "min_power" : 6
+    },
+    {
+        "name" : "Bass",
+        "value" : 4,
+        "asset" : "FISH_BASS",
+        "min_power" : 5
+    },
+    {
+        "name" : "Frog",
+        "value" : 5,
+        "asset" : "FISH_FROG",
+        "min_power" : 3
+    }
+]

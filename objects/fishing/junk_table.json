@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Tin Can",
+        "asset" : "JUNK_TIN_CAN",
+        "value" : 0
+    },
+    {
+        "name" : "Fish Skeleton",
+        "asset" : "JUNK_FISH_SKELETON",
+        "value" : 0
+    },
+    {
+        "name" : "Driftwood",
+        "asset" : "JUNK_DRIFTWOOD",
+        "value" : 0
+    },
+    {
+        "name" : "Seaweed",
+        "asset" : "JUNK_SEAWEED",
+        "value" : 0
+    },
+    {
+        "name" : "Bone",
+        "asset" : "JUNK_BONE",
+        "value" : 0
+    }
+]
