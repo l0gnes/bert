@@ -5,7 +5,7 @@ from datetime import datetime
 from objects.explosion.ExplosionReason import ExplosionReason
 from typing import Union
 
-# Weather API Key: c178dc07b1fd4aee9a2222918221412
+# The thing you're looking for isn't here anymore, I've reset it as well. Get rekt'd loser
 
 class CheeseCog(commands.Cog):
 
