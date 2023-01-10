@@ -27,6 +27,8 @@ class BertBot(commands.Bot):
 
     logger : logging.Logger
 
+    debug_mode : bool = False
+
     def __init__(self, *args, **kwargs) -> None:
 
         super().__init__(
@@ -48,16 +50,19 @@ class BertBot(commands.Bot):
             "cogs.eco",
             "cogs.leaderboard",
             "cogs.fishing",
-            "cogs.achievements"
+            "cogs.achievements",
             #"cogs.cheese",
             #"cogs.test",
         )
+
+        self.debug_mode = environ.get('DEBUG_MODE', 'false').lower() == 'true'
 
         self.bert_status = BertStatus(
             self, randomize=True
         )
 
         self.logger = logging.getLogger("discord")
+
 
     async def run_db_setup_script(self) -> None:
         

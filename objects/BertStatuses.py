@@ -1,24 +1,29 @@
-from discord import Client, ActivityType, Activity
-from typing import List, Tuple, Set
+from discord import Client, ActivityType, Activity, Status
+from typing import List, Tuple, Set, Optional
 from random import choice
 
 class BertStatus(object):
 
-    presence_list : List[Tuple[str, ActivityType]] = [
-        ("in a thimble", ActivityType.playing),
-        ("sleepy music", ActivityType.listening),
-        ("competitive shitting", ActivityType.competing),
-        ("with some twigs", ActivityType.playing),
-        ("minecraft (rat edition)", ActivityType.playing),
-        ("stewart little", ActivityType.watching),
-        ("penis music", ActivityType.listening),
-        ("in the road", ActivityType.playing),
-        ("with legos!", ActivityType.playing),
-        ("the intrusive thoughts", ActivityType.listening),
-        ("the world burn", ActivityType.watching),
-        ("in the sink", ActivityType.playing),
-        ("with belly button lint", ActivityType.playing)
+    presence_list : List[Tuple[str, ActivityType, Status]] = [
+        ("in a thimble", ActivityType.playing, Status.online),
+        ("sleepy music", ActivityType.listening, Status.online),
+        ("competitive shitting", ActivityType.competing, Status.online),
+        ("with some twigs", ActivityType.playing, Status.online),
+        ("minecraft (rat edition)", ActivityType.playing, Status.online),
+        ("stewart little", ActivityType.watching, Status.online),
+        ("penis music", ActivityType.listening, Status.online),
+        ("in the road", ActivityType.playing, Status.online),
+        ("with legos!", ActivityType.playing, Status.online),
+        ("the intrusive thoughts", ActivityType.listening, Status.online),
+        ("the world burn", ActivityType.watching, Status.online),
+        ("in the sink", ActivityType.playing, Status.online),
+        ("with belly button lint", ActivityType.playing, Status.online)
     ]
+
+    debug_status_enabled : bool = True # Whether or not to use a debug status if the bot is in debug mode
+    debug_status : Tuple[str, ActivityType, Status] = (
+        "myself be developed", ActivityType.watching, Status.idle
+    )
 
     current_index : int
     randomize : bool
@@ -61,23 +66,35 @@ class BertStatus(object):
 
         new_presence = None
         
-        if not self.randomize:
+        if not self.randomize and not (self.debug_status_enabled and self.client.debug_mode):
 
             self.current_index = self.fetch_valid_next_index()
-            name, type = self.presence_list[new_presence]
+            name, type, status = self.presence_list[new_presence]
 
             return await self.client.change_presence(
                 activity = Activity(
                     name = name,
                     type = type
-                )
+                ),
+                status = status
             )
 
-        name, type = self.get_random_presence_index()
+        if self.debug_status_enabled and self.client.debug_mode:
+
+            return await self.client.change_presence(
+                activity = Activity(
+                    name = self.debug_status[0],
+                    type = self.debug_status[1]
+                ),
+                status = self.debug_status[2]
+            )
+
+        name, type, status = self.get_random_presence_index()
 
         return await self.client.change_presence(
             activity = Activity(
                 name = name,
                 type = type
-            )
+            ),
+            status = status
         )
