@@ -58,3 +58,14 @@ CREATE TABLE IF NOT EXISTS achievements(
     progress INTEGER DEFAULT 0,
     CONSTRAINT userid_achievement UNIQUE (userid, achievement)
 );
+
+CREATE TABLE IF NOT EXISTS tags(
+    creatorid BIGINT NOT NULL,
+    guildid BIGINT NOT NULL,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    imageurl TEXT DEFAULT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    edited_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT guild_specific UNIQUE (guildid, title)
+);

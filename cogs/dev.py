@@ -5,7 +5,9 @@ from discord import app_commands
 from bert import BertBot
 from objects.EconomyManager import EconomyManager
 from objects.fishing.FishingManager import FishingManager
+from objects.tags.TagManager import TagManager
 from objects.CommandTreeCacher import CommandTreeCacher
+from modals.TagCreation import TagCreationModal
 
 from modals.AchievementCreator import AchievementCreator
 
@@ -21,6 +23,7 @@ class DeveloperCog(commands.GroupCog, name="dev"):
 
         self.ecoman = EconomyManager(self.client)
         self.fishman = FishingManager(self.client)
+        self.tagman = TagManager(self.client)
 
     async def interaction_check(self, interaction : discord.Interaction) -> bool:
         return interaction.user.id in self.client.developer_ids
@@ -45,9 +48,22 @@ class DeveloperCog(commands.GroupCog, name="dev"):
         name = "test",
         description = "Test Command"
     )
-    async def dev_test(self, interaction : discord.Interaction) -> None:
-        balance = await self.ecoman.add_balance(interaction.user, 1)
-        return await interaction.response.send_message("You have %s dabloons!" % (balance))
+    async def dev_test(self, interaction : discord.Interaction, title : str) -> None:
+        await interaction.response.send_modal(
+            TagCreationModal(self.tagman, title)
+        )
+
+    @app_commands.command(
+        name="tagtest",
+        description="Try to fetch the test tag. Make sure it exists!"
+    )
+    async def dev_tagtest(self, interaction : discord.Interaction) -> None:
+        t = await self.tagman.fetch_tag_by_title(interaction.guild, "cum")
+        em = await t.create_embed()
+        return await interaction.response.send_message(
+            embed = em,
+            ephemeral = True
+        )
 
     @app_commands.command(
         name = "ecogive",

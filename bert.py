@@ -51,6 +51,7 @@ class BertBot(commands.Bot):
             "cogs.leaderboard",
             "cogs.fishing",
             "cogs.achievements",
+            "cogs.tags",
             #"cogs.cheese",
             #"cogs.test",
         )
